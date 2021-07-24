@@ -11,7 +11,7 @@ protocol ModelInput {
     func sum(firstNum: Double, secondNum: Double) -> Double
 }
 
-class Model: ModelInput {
+final class Model: ModelInput {
     func sum(firstNum: Double, secondNum: Double) -> Double {
         let result = firstNum + secondNum
         return result
