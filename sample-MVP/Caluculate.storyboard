@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FrR-gE-EKU">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="4uQ-OE-yiI">
+            <objects>
+                <viewController id="FrR-gE-EKU" customClass="ViewController" customModule="sample_MVP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YWm-r1-W40">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ORo-LH-flC">
+                                <rect key="frame" x="20" y="94" width="374" height="88"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ugn-GG-eOb">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yk-G6-WCS">
+                                        <rect key="frame" x="0.0" y="54" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yp-nc-0MR">
+                                <rect key="frame" x="20" y="422" width="374" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="vFF-Hd-2V4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRE-qH-0OJ">
+                                <rect key="frame" x="20" y="252" width="374" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="U6u-QM-Kne"/>
+                                </constraints>
+                                <state key="normal" title="計算">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DQC-s8-2bN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DQC-s8-2bN" firstAttribute="trailing" secondItem="8yp-nc-0MR" secondAttribute="trailing" constant="20" id="AHv-DW-VJd"/>
+                            <constraint firstItem="ORo-LH-flC" firstAttribute="leading" secondItem="DQC-s8-2bN" secondAttribute="leading" constant="20" id="Hlz-Kd-uZi"/>
+                            <constraint firstItem="8yp-nc-0MR" firstAttribute="centerX" secondItem="YWm-r1-W40" secondAttribute="centerX" id="L96-xi-lcV"/>
+                            <constraint firstItem="DQC-s8-2bN" firstAttribute="trailing" secondItem="rRE-qH-0OJ" secondAttribute="trailing" constant="20" id="LfF-6G-lSe"/>
+                            <constraint firstItem="rRE-qH-0OJ" firstAttribute="leading" secondItem="DQC-s8-2bN" secondAttribute="leading" constant="20" id="Tad-DU-1Wl"/>
+                            <constraint firstItem="8yp-nc-0MR" firstAttribute="top" secondItem="rRE-qH-0OJ" secondAttribute="bottom" constant="70" id="WuY-7y-shX"/>
+                            <constraint firstItem="ORo-LH-flC" firstAttribute="top" secondItem="DQC-s8-2bN" secondAttribute="top" constant="50" id="bdr-mB-pAf"/>
+                            <constraint firstItem="rRE-qH-0OJ" firstAttribute="centerX" secondItem="YWm-r1-W40" secondAttribute="centerX" id="bg9-2I-hDr"/>
+                            <constraint firstItem="DQC-s8-2bN" firstAttribute="trailing" secondItem="ORo-LH-flC" secondAttribute="trailing" constant="20" id="eEZ-ti-d1r"/>
+                            <constraint firstItem="8yp-nc-0MR" firstAttribute="leading" secondItem="DQC-s8-2bN" secondAttribute="leading" constant="20" id="o79-Lf-EE8"/>
+                            <constraint firstItem="rRE-qH-0OJ" firstAttribute="top" secondItem="ORo-LH-flC" secondAttribute="bottom" constant="70" id="ovW-T9-T2c"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calculateButton" destination="rRE-qH-0OJ" id="Ntq-uH-N8g"/>
+                        <outlet property="firstTextField" destination="Ugn-GG-eOb" id="nvB-JX-ym9"/>
+                        <outlet property="resultLabel" destination="8yp-nc-0MR" id="UzZ-xU-keC"/>
+                        <outlet property="secondTextField" destination="2yk-G6-WCS" id="I3T-pX-4tv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JJK-c6-ZaG" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="79"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
