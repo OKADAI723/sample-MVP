@@ -16,7 +16,7 @@ protocol PresenterOutPut {
     func setResultLabel(resultText: String)
 }
 
-class Presenter: PresenterInput {
+final class Presenter: PresenterInput {
     
     let view: PresenterOutPut
     let model: ModelInput
