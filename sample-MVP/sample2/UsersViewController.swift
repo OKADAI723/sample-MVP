@@ -16,11 +16,11 @@ final class UsersViewController: UIViewController {
         }
     }
     
-    private let presenter = UserPresenter()
     private let CELL_ID = "CELL_ID"
     private let CELL_NIB = "CELL_NIB"
     
-    private var users: [UserModel] = []
+    private var presenter: UserPresenter!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +28,9 @@ final class UsersViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        presenter.setViewDelegate(delegate: self)
-        presenter.getUsers()
+        presenter = UserPresenter(with: self)
+        presenter.viewDidLoad()
+        
         
     }
 }
@@ -38,37 +39,45 @@ extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        presenter.didTapUser(user: users[indexPath.row])
+        presenter.didSelectRowAt(indexPath)
     }
 }
 
 extension UsersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return presenter.numberOfUsers
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath )
-        cell.textLabel?.text = users[indexPath.row].name
+        let user = presenter.user(forRow: indexPath.row)
+        cell.textLabel?.text = user?.name
         return cell
     }
     
     
 }
 
-extension UsersViewController: UserPresenterDelegate {
-    func presentUsers(users: [UserModel]) {
-        self.users = users
-        
+extension UsersViewController: UserPresenterOutPut {
+    func didFetch(_ users: [UserModel]) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
-    func presentAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    func didFailToFetchUser(with error: Error) {
+        let alert = UIAlertController(title: "エラー", message: "\(error)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "閉じる", style: .cancel, handler: nil))
         
         present(alert, animated: true, completion: nil)
     }
+    
+    func didPrepareInfomation(of user: UserModel) {
+        let alert = UIAlertController(title: "エラー", message: user.name, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "閉じる", style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
 }

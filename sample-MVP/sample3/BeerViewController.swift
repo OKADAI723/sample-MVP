@@ -55,6 +55,8 @@ extension BeerViewController: UITableViewDataSource {
     }
 }
 
+//Modelで処理されたデータをPresenterが受け取り、それをViewに表示するように指示する
+//具体的な表示の処理はViewで行う
 extension BeerViewController: BeerListPresenterOutPut {
     func didFetch(_ beers: [BeerModel]) {
         DispatchQueue.main.async {

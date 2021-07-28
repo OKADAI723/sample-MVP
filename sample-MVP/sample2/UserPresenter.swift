@@ -8,42 +8,65 @@
 import Foundation
 import UIKit
 
-protocol UserPresenterDelegate: AnyObject {
-    func presentUsers(users: [UserModel])
-    func presentAlert(title: String, message: String)
+protocol UserPresenterInput {
+    var numberOfUsers: Int { get }
+    func user(forRow row: Int) -> UserModel?
+    func viewDidLoad()
+    func didSelectRowAt(_ indexPath: IndexPath)
     
 }
 
-typealias PresenterDelegate = UserPresenterDelegate & UIViewController
-
-class UserPresenter {
-    weak var delegate: UserPresenterDelegate?
-    
-    public func getUsers() {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else {
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let _data = data, error == nil else {
-                return
-            }
-            do {
-                let users = try JSONDecoder().decode([UserModel].self, from: _data)
-                self?.delegate?.presentUsers(users: users)
-            }
-            catch {
-                print(error)
-            }
-        }
-        task.resume()
-    }
-    
-    public func setViewDelegate(delegate: PresenterDelegate) {
-        self.delegate = delegate
-    }
-    
-    public func didTapUser(user: UserModel) {
-        delegate?.presentAlert(title: user.name, message: "\(user.name) has an email of \(user.email) and username is \(user.username)")
-    }
+protocol UserPresenterOutPut: AnyObject {
+    func didFetch(_ users: [UserModel])
+    func didFailToFetchUser(with error: Error)
+    func didPrepareInfomation(of user: UserModel)
 }
+
+//typealias PresenterDelegate = UserPresenterDelegate & UIViewController
+
+final class UserPresenter: UserPresenterInput {
+    
+    private weak var view: UserPresenterOutPut?
+    private var dataModel: FetchUserProtocol
+    
+    init(with view: UserPresenterOutPut) {
+        self.view = view
+        self.dataModel = FetchUserAPI()
+    }
+    
+    private(set) var users: [UserModel] = []
+    
+    
+    func user(forRow row: Int) -> UserModel? {
+        if row >= users.count {
+            return nil
+        }
+        return users[row]
+    }
+    
+    var numberOfUsers: Int {
+        return users.count
+    }
+    
+    func viewDidLoad() {
+        dataModel.fetchUser { [weak self] result in
+                    switch result {
+                    case .failure(let error):
+                        self?.view?.didFailToFetchUser(with: error)
+                    case .success(let loadedUser):
+                        self?.users = loadedUser
+                        guard let beers = self?.users
+                        else { fatalError() }
+                        self?.view?.didFetch(beers)
+                    }
+                }
+    }
+    
+    func didSelectRowAt(_ indexPath: IndexPath) {
+        guard let user = user(forRow: indexPath.row)
+            else { return }
+            view?.didPrepareInfomation(of: user)
+        }
+    }
+
+

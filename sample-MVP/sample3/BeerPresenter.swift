@@ -22,7 +22,7 @@ protocol BeerListPresenterOutPut: AnyObject {
     func didPrepareInfomation(of beer: BeerModel)
 }
 
-class BeerListPresenter: BeerListPresenterInput {
+final class BeerListPresenter: BeerListPresenterInput {
     
     private(set) var beers: [BeerModel] = []
     
