@@ -14,6 +14,14 @@
 		DE3879AE26AC14ED001D3790 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3879AD26AC14ED001D3790 /* Presenter.swift */; };
 		DE3879B026AC152A001D3790 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3879AF26AC152A001D3790 /* Model.swift */; };
 		DE3879B226AC20B2001D3790 /* Caluculate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3879B126AC20B2001D3790 /* Caluculate.storyboard */; };
+		DEDE5E7D26AF741700A8504C /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE5E7C26AF741700A8504C /* UsersViewController.swift */; };
+		DEDE5E7F26AF744E00A8504C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE5E7E26AF744E00A8504C /* UserModel.swift */; };
+		DEDE5E8126AF749800A8504C /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDE5E8026AF749800A8504C /* User.storyboard */; };
+		DEDE5E8326AF751B00A8504C /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE5E8226AF751B00A8504C /* UserPresenter.swift */; };
+		DEDE5E8626B173F900A8504C /* BeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE5E8526B173F900A8504C /* BeerModel.swift */; };
+		DEDE5E8826B1740900A8504C /* Beer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDE5E8726B1740900A8504C /* Beer.storyboard */; };
+		DEDE5E8A26B1741B00A8504C /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE5E8926B1741B00A8504C /* BeerViewController.swift */; };
+		DEDE5E8C26B1767500A8504C /* BeerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDE5E8B26B1767500A8504C /* BeerPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,14 @@
 		DE3879AD26AC14ED001D3790 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		DE3879AF26AC152A001D3790 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DE3879B126AC20B2001D3790 /* Caluculate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Caluculate.storyboard; sourceTree = "<group>"; };
+		DEDE5E7C26AF741700A8504C /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		DEDE5E7E26AF744E00A8504C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		DEDE5E8026AF749800A8504C /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		DEDE5E8226AF751B00A8504C /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
+		DEDE5E8526B173F900A8504C /* BeerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerModel.swift; sourceTree = "<group>"; };
+		DEDE5E8726B1740900A8504C /* Beer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Beer.storyboard; sourceTree = "<group>"; };
+		DEDE5E8926B1741B00A8504C /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
+		DEDE5E8B26B1767500A8504C /* BeerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,15 +75,71 @@
 			isa = PBXGroup;
 			children = (
 				DE38799926AC12CA001D3790 /* AppDelegate.swift */,
-				DE38799D26AC12CA001D3790 /* ViewController.swift */,
-				DE3879AD26AC14ED001D3790 /* Presenter.swift */,
-				DE3879AF26AC152A001D3790 /* Model.swift */,
-				DE3879B126AC20B2001D3790 /* Caluculate.storyboard */,
+				DEDE5E8426B173D600A8504C /* sample3 */,
+				DEDE5E7726AF736700A8504C /* sample1 */,
+				DEDE5E7826AF738000A8504C /* sample2 */,
 				DE3879A226AC12CB001D3790 /* Assets.xcassets */,
 				DE3879A426AC12CB001D3790 /* LaunchScreen.storyboard */,
 				DE3879A726AC12CB001D3790 /* Info.plist */,
 			);
 			path = "sample-MVP";
+			sourceTree = "<group>";
+		};
+		DEDE5E7726AF736700A8504C /* sample1 */ = {
+			isa = PBXGroup;
+			children = (
+				DEDE5E7B26AF73EC00A8504C /* View */,
+				DEDE5E7A26AF73DA00A8504C /* Presenter */,
+				DEDE5E7926AF73D100A8504C /* Model */,
+				DE3879B126AC20B2001D3790 /* Caluculate.storyboard */,
+			);
+			path = sample1;
+			sourceTree = "<group>";
+		};
+		DEDE5E7826AF738000A8504C /* sample2 */ = {
+			isa = PBXGroup;
+			children = (
+				DEDE5E7C26AF741700A8504C /* UsersViewController.swift */,
+				DEDE5E8226AF751B00A8504C /* UserPresenter.swift */,
+				DEDE5E7E26AF744E00A8504C /* UserModel.swift */,
+				DEDE5E8026AF749800A8504C /* User.storyboard */,
+			);
+			path = sample2;
+			sourceTree = "<group>";
+		};
+		DEDE5E7926AF73D100A8504C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE3879AF26AC152A001D3790 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEDE5E7A26AF73DA00A8504C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DE3879AD26AC14ED001D3790 /* Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DEDE5E7B26AF73EC00A8504C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE38799D26AC12CA001D3790 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DEDE5E8426B173D600A8504C /* sample3 */ = {
+			isa = PBXGroup;
+			children = (
+				DEDE5E8526B173F900A8504C /* BeerModel.swift */,
+				DEDE5E8B26B1767500A8504C /* BeerPresenter.swift */,
+				DEDE5E8926B1741B00A8504C /* BeerViewController.swift */,
+				DEDE5E8726B1740900A8504C /* Beer.storyboard */,
+			);
+			path = sample3;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +200,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3879A626AC12CB001D3790 /* LaunchScreen.storyboard in Resources */,
+				DEDE5E8826B1740900A8504C /* Beer.storyboard in Resources */,
+				DEDE5E8126AF749800A8504C /* User.storyboard in Resources */,
 				DE3879A326AC12CB001D3790 /* Assets.xcassets in Resources */,
 				DE3879B226AC20B2001D3790 /* Caluculate.storyboard in Resources */,
 			);
@@ -141,9 +215,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3879B026AC152A001D3790 /* Model.swift in Sources */,
+				DEDE5E8626B173F900A8504C /* BeerModel.swift in Sources */,
 				DE38799E26AC12CA001D3790 /* ViewController.swift in Sources */,
+				DEDE5E7D26AF741700A8504C /* UsersViewController.swift in Sources */,
+				DEDE5E8326AF751B00A8504C /* UserPresenter.swift in Sources */,
 				DE38799A26AC12CA001D3790 /* AppDelegate.swift in Sources */,
+				DEDE5E8C26B1767500A8504C /* BeerPresenter.swift in Sources */,
+				DEDE5E7F26AF744E00A8504C /* UserModel.swift in Sources */,
 				DE3879AE26AC14ED001D3790 /* Presenter.swift in Sources */,
+				DEDE5E8A26B1741B00A8504C /* BeerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

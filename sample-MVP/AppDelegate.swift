@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError()
         }
         
-//        let window = UIWindow(frame: UIScreen.main.bounds)
         let window = UIWindow()
         
         let model = Model()
